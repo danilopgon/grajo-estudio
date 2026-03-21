@@ -1,6 +1,4 @@
-import { buttonVariants } from '@/components/ui/button-variants'
 import { FadeUp } from '@/components/animations/fade-up'
-import { cn } from '@/lib/utils'
 
 export function Narrativa() {
   return (
@@ -40,14 +38,6 @@ export function Narrativa() {
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.24}>
-              <a
-                href="/#contacto"
-                className={cn(buttonVariants({ variant: 'grajo-ghost', size: 'pill' }), 'gap-1 px-0 text-earth hover:text-orange')}
-              >
-                Ver proyectos →
-              </a>
-            </FadeUp>
           </div>
 
           {/* Visual placeholder grid */}
