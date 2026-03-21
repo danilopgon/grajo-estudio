@@ -30,6 +30,8 @@ export function Contacto() {
     if (!data.nombre.trim()) errors.nombre = 'El nombre es obligatorio.'
     if (!data.email.trim()) errors.email = 'El email es obligatorio.'
     else if (!EMAIL_RE.test(data.email)) errors.email = 'Introduce un email válido.'
+    if (!data.asunto.trim()) errors.asunto = 'Cuéntanos qué necesitas.'
+    if (!data.mensaje.trim()) errors.mensaje = 'Añade un mensaje, por favor.'
 
     if (Object.keys(errors).length) {
       setFieldErrors(errors)
@@ -148,6 +150,7 @@ export function Contacto() {
                 label="¿Qué necesitas?"
                 type="text"
                 placeholder="Desarrollo, accesibilidad, rescate..."
+                required
                 error={fieldErrors.asunto}
                 onChange={() => clearFieldError('asunto')}
               />
@@ -155,6 +158,7 @@ export function Contacto() {
                 id="mensaje"
                 label="Cuéntanos más"
                 placeholder="Lo que quieras contarnos. Sin filtros."
+                required
                 error={fieldErrors.mensaje}
                 onChange={() => clearFieldError('mensaje')}
               />
@@ -236,19 +240,25 @@ interface TextareaFieldProps {
   id: string
   label: string
   placeholder: string
+  required?: boolean
   error?: string
   onChange?: () => void
 }
 
-function TextareaField({ id, label, placeholder, error, onChange }: TextareaFieldProps) {
+function TextareaField({ id, label, placeholder, required, error, onChange }: TextareaFieldProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className={labelClass}>{label}</label>
+      <label htmlFor={id} className={labelClass}>
+        {label}
+        {required && <span className="ml-1 text-orange-soft" aria-hidden="true">*</span>}
+      </label>
       <textarea
         id={id}
         name={id}
         placeholder={placeholder}
         rows={5}
+        required={required}
+        aria-required={required}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         className={`${inputBase} ${error ? inputError : inputNormal} resize-y`}

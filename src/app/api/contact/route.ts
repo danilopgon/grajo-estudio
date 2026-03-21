@@ -5,8 +5,8 @@ import { z } from 'zod'
 const contactSchema = z.object({
   nombre: z.string().min(1, 'El nombre es obligatorio.').max(100),
   email: z.email('Email no válido.').max(200),
-  asunto: z.string().max(200).optional(),
-  mensaje: z.string().max(2000).optional(),
+  asunto: z.string().min(1, 'Cuéntanos qué necesitas.').max(200),
+  mensaje: z.string().min(1, 'Añade un mensaje, por favor.').max(2000),
 })
 
 /** Escape HTML special characters to prevent XSS in email body */
