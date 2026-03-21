@@ -11,33 +11,46 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   const lenisRef = useRef<Lenis | null>(null)
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let rafCallback: ((time: number) => void) | null = null
 
-    if (prefersReducedMotion) {
-      return
+    function initLenis() {
+      if (lenisRef.current) return
+
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      })
+
+      lenisRef.current = lenis
+      lenis.on('scroll', ScrollTrigger.update)
+
+      rafCallback = (time: number) => lenis.raf(time * 1000)
+      gsap.ticker.add(rafCallback)
+      gsap.ticker.lagSmoothing(0)
     }
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    })
-
-    lenisRef.current = lenis
-
-    lenis.on('scroll', ScrollTrigger.update)
-
-    const rafCallback = (time: number) => {
-      lenis.raf(time * 1000)
+    function destroyLenis() {
+      if (!lenisRef.current) return
+      lenisRef.current.destroy()
+      if (rafCallback) gsap.ticker.remove(rafCallback)
+      lenisRef.current = null
+      rafCallback = null
     }
 
-    gsap.ticker.add(rafCallback)
-    gsap.ticker.lagSmoothing(0)
+    function handleMotionChange(e: MediaQueryListEvent) {
+      if (e.matches) destroyLenis()
+      else initLenis()
+    }
+
+    if (!mq.matches) initLenis()
+
+    mq.addEventListener('change', handleMotionChange)
 
     return () => {
-      lenis.destroy()
-      gsap.ticker.remove(rafCallback)
-      lenisRef.current = null
+      mq.removeEventListener('change', handleMotionChange)
+      destroyLenis()
     }
   }, [])
 
