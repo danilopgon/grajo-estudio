@@ -1,27 +1,31 @@
 import type { MDXComponents } from 'mdx/types'
+import Image from 'next/image'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    h1: ({ children }) => (
-      <h1 className="font-display text-4xl tracking-tight text-earth mb-6">
-        {children}
-      </h1>
+    // Use next/image for all MDX images
+    img: ({ src, alt, width, height }) => (
+      <Image
+        src={src as string}
+        alt={alt ?? ''}
+        width={Number(width) || 800}
+        height={Number(height) || 450}
+        className="rounded-lg my-6 w-full"
+      />
     ),
-    h2: ({ children }) => (
-      <h2 className="font-heading text-2xl font-bold text-earth mb-4 mt-10">
-        {children}
-      </h2>
-    ),
-    p: ({ children }) => (
-      <p className="text-earth-mid leading-relaxed mb-4">
-        {children}
-      </p>
-    ),
-    a: ({ href, children }) => (
-      <a href={href} className="text-orange-accessible hover:text-orange-accessible-hover underline underline-offset-4">
-        {children}
-      </a>
-    ),
+    // External links get target="_blank" automatically
+    a: ({ href, children, ...props }) => {
+      const isExternal = href?.startsWith('http')
+      return (
+        <a
+          href={href}
+          {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          {...props}
+        >
+          {children}
+        </a>
+      )
+    },
     ...components,
   }
 }

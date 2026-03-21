@@ -10,6 +10,12 @@ export interface PostMeta {
   date: string
   slug: string
   tags?: string[]
+  image?: string
+}
+
+function readingTime(content: string): number {
+  const words = content.trim().split(/\s+/).length
+  return Math.max(1, Math.ceil(words / 230))
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -28,5 +34,9 @@ export function getAllPosts(): PostMeta[] {
 export function getPostBySlug(slug: string) {
   const raw = fs.readFileSync(path.join(CONTENT_DIR, `${slug}.mdx`), 'utf-8')
   const { data, content } = matter(raw)
-  return { meta: { ...(data as Omit<PostMeta, 'slug'>), slug }, content }
+  return {
+    meta: { ...(data as Omit<PostMeta, 'slug'>), slug },
+    content,
+    readingTime: readingTime(content),
+  }
 }
