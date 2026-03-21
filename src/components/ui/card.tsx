@@ -12,7 +12,11 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-4 overflow-hidden rounded-xl bg-card py-4 text-sm text-card-foreground ring-1 ring-foreground/10 has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
+        // Grajo clay card — overrides shadcn defaults
+        "group/card relative flex flex-col overflow-hidden rounded-[var(--radius)] border-[2.5px] border-earth bg-cream-light text-sm text-earth transition-all duration-300 ease-out",
+        "[box-shadow:8px_8px_16px_rgba(61,50,41,0.12),-2px_-2px_8px_rgba(255,253,249,0.7)]",
+        "hover:-translate-y-[3px] hover:[box-shadow:6px_6px_12px_rgba(61,50,41,0.18),-1px_-1px_6px_rgba(255,253,249,0.8)]",
+        "has-data-[slot=card-footer]:pb-0 data-[size=sm]:gap-3 data-[size=sm]:py-4",
         className
       )}
       {...props}
@@ -33,12 +37,12 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+function CardTitle({ className, ...props }: React.ComponentProps<"h3">) {
   return (
-    <div
+    <h3
       data-slot="card-title"
       className={cn(
-        "font-heading text-base leading-snug font-medium group-data-[size=sm]/card:text-sm",
+        "font-heading text-base leading-snug font-bold group-data-[size=sm]/card:text-sm",
         className
       )}
       {...props}

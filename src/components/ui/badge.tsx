@@ -19,6 +19,9 @@ const badgeVariants = cva(
         ghost:
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
         link: "text-primary underline-offset-4 hover:underline",
+        // Grajo accent — service card tags (.card-tag in HTML prototype)
+        accent:
+          "bg-[rgba(232,114,74,0.1)] text-orange border-transparent rounded-[var(--radius-pill)]",
       },
     },
     defaultVariants: {
