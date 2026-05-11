@@ -106,7 +106,7 @@ export function Hero() {
                       <span className="font-heading text-[0.875rem] font-semibold leading-tight tracking-[-0.005em] text-cream">
                         {s.t}
                       </span>
-                      <span className="font-body text-[0.75rem] leading-[1.45] text-cream/55">
+                      <span className="font-body text-[0.75rem] leading-[1.45] text-cream/70">
                         {s.d}
                       </span>
                     </div>
