@@ -126,7 +126,7 @@ export function Contacto() {
                 Te respondemos en 24–48 h. Si no recibes confirmación, escríbenos a{' '}
                 <a
                   href="mailto:hola@grajoestudio.com"
-                  className="underline underline-offset-2 hover:text-orange-soft transition-colors"
+                  className="underline underline-offset-2 hover:text-orange-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
                 >
                   hola@grajoestudio.com
                 </a>
@@ -135,7 +135,7 @@ export function Contacto() {
               <button
                 type="button"
                 onClick={() => setStatus('idle')}
-                className="self-start text-[0.82rem] font-semibold uppercase tracking-[0.06em] text-orange-soft underline underline-offset-2 hover:text-cream transition-colors"
+                className="self-start text-[0.82rem] font-semibold uppercase tracking-[0.06em] text-orange-soft underline underline-offset-2 hover:text-cream transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
               >
                 Enviar otro mensaje
               </button>
