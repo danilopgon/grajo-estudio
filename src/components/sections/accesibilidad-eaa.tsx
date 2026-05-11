@@ -20,24 +20,31 @@ export function AccesibilidadEaa() {
             <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
             Accesibilidad digital
           </span>
-          <div
-            className="my-7 font-display text-[clamp(5rem,12vw,9rem)] leading-[0.9] text-orange-accessible"
-            aria-label="Un millón de euros"
-          >
-            1.000.000 €
-          </div>
-          <p className="text-[1rem] leading-[1.7] text-earth-mid">
-            La sanción máxima por incumplir la{' '}
-            <strong className="font-semibold text-earth">European Accessibility Act</strong>,
-            en vigor desde junio de 2025.
-          </p>
+
           <h2
             id="accesibilidad-heading"
-            className="mx-auto mt-6 max-w-[580px] font-display text-[clamp(1rem,1.3vw,1.15rem)] font-normal leading-[1.7] text-earth-mid"
+            className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.15] tracking-[-0.02em] text-earth"
           >
-            Auditamos e implementamos en el mismo equipo, sobre el mismo código.
-            Sin pasarte un PDF y un teléfono que no contesta.
+            Auditamos e implementamos<br className="hidden sm:block" /> en el mismo equipo, sobre el mismo código.
           </h2>
+
+          <p className="mt-4 text-[1rem] leading-[1.7] text-earth-mid">
+            Sin pasarte un PDF y un teléfono que no contesta. La{' '}
+            <strong className="font-semibold text-earth">European Accessibility Act</strong>{' '}
+            está en vigor desde junio de 2025 — y cumplir no tiene que ser un proyecto aparte.
+          </p>
+
+          <div className="mt-8 inline-flex flex-col items-center gap-1.5 rounded-[var(--radius)] border border-sand bg-cream-light px-8 py-5">
+            <span
+              className="font-display text-[clamp(2.5rem,6vw,4rem)] leading-[0.9] text-orange-accessible"
+              aria-label="Un millón de euros"
+            >
+              1.000.000 €
+            </span>
+            <span className="text-[0.78rem] font-medium uppercase tracking-[0.06em] text-earth-mid">
+              sanción máxima por incumplimiento
+            </span>
+          </div>
         </FadeUp>
 
         <StaggerChildren className="mx-auto grid max-w-[900px] gap-[18px] sm:grid-cols-3">
