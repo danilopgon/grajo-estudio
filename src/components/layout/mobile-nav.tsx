@@ -49,7 +49,7 @@ export function MobileNav() {
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="font-body text-lg font-medium text-earth py-3 border-b border-sand hover:text-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible"
+              className="font-body text-lg font-medium text-earth py-3 border-b border-sand hover:text-orange-accessible transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible"
             >
               {label}
             </a>
