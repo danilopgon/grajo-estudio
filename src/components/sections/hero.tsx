@@ -2,70 +2,131 @@ import { buttonVariants } from '@/components/ui/button-variants'
 import { FadeUp } from '@/components/animations/fade-up'
 import { cn } from '@/lib/utils'
 
+const SERVICES_PREVIEW = [
+  { n: '01', t: 'Producto digital',   d: 'Web, app y frontend que dura.' },
+  { n: '02', t: 'Accesibilidad',      d: 'WCAG 2.2 AA · EAA · auditorías.' },
+  { n: '03', t: 'Diseño & UX',        d: 'Sistemas visuales y dirección.' },
+  { n: '04', t: 'Narrativa visual',   d: 'Motion, videoclip, dirección.' },
+  { n: '05', t: 'Rescate técnico',    d: 'Refactor, MVPs y código IA.' },
+]
+
 export function Hero() {
   return (
     <section
-      className="flex min-h-[85vh] items-center pt-[clamp(7rem,14vh,10rem)] pb-[clamp(4rem,8vh,7rem)]"
+      id="top"
+      className="relative overflow-hidden pt-[clamp(7rem,14vh,10rem)] pb-[clamp(4rem,9vh,7rem)]"
       aria-label="Bienvenida"
     >
-      <div className="container">
-        <div className="grid grid-cols-1 gap-[clamp(2rem,5vw,4rem)] items-center md:grid-cols-2">
+      {/* Decorative blobs */}
+      <div
+        className="pointer-events-none absolute -top-[120px] -right-[100px] h-[420px] w-[420px] rounded-full bg-orange-soft opacity-[0.08] blur-[60px]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -bottom-[80px] -left-[60px] h-[280px] w-[280px] rounded-full bg-[var(--ochre)] opacity-[0.05] blur-[50px]"
+        aria-hidden="true"
+      />
 
-          {/* Content */}
-          <div>
+      <div className="container relative">
+        <div className="grid grid-cols-1 items-center gap-[clamp(2rem,5vw,4rem)] md:grid-cols-[1.4fr_1fr]">
+
+          {/* Left column */}
+          <div className="flex flex-col gap-6">
             <FadeUp>
-              <div className="mb-6 inline-flex items-center gap-1.5 rounded-[var(--radius-pill)] border border-[rgba(232,114,74,0.25)] bg-[rgba(232,114,74,0.1)] px-4 py-[0.45rem] text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-orange">
-                <span aria-hidden="true">🪶</span>
-                Estudio de desarrollo
-              </div>
+              <span className="inline-flex items-center gap-2 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-orange-accessible">
+                <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+                Estudio · Cuenca · desde 2024
+              </span>
             </FadeUp>
 
             <FadeUp delay={0.08}>
-              <h1 className="mb-6 font-display text-[clamp(2.8rem,5.5vw,4.5rem)] leading-[1.08] tracking-[-0.02em] text-earth">
+              <h1 className="font-display text-[clamp(3rem,7vw,6rem)] leading-[1.03] tracking-[-0.02em] text-earth">
                 Desarrollo web<br />
                 con{' '}
-                <em className="not-italic text-orange">alma</em>
+                <em className="not-italic text-orange-accessible">alma</em>.
               </h1>
             </FadeUp>
 
             <FadeUp delay={0.16}>
-              <p className="mb-8 max-w-[480px] text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.7] text-earth-mid">
-                Construimos webs, apps y piezas visuales desde lo técnico y lo humano.
-                Con foco en accesibilidad, código limpio y narrativa con intención.
+              <p className="max-w-[480px] text-[clamp(1rem,1.3vw,1.15rem)] leading-[1.7] text-earth-mid">
+                Construimos productos digitales claros, sólidos y humanos.
+                Código que dura, accesibilidad desde el inicio, narrativa con intención.
               </p>
             </FadeUp>
 
             <FadeUp delay={0.24}>
-              <div className="flex flex-wrap gap-4">
-                <a href="/#servicios" className={cn(buttonVariants({ variant: 'grajo-primary', size: 'pill' }))}>
+              <div className="flex flex-wrap items-center gap-[18px]">
+                <a
+                  href="#servicios"
+                  className={cn(buttonVariants({ variant: 'grajo-primary', size: 'pill' }))}
+                >
                   Qué hacemos
                 </a>
-                <a href="/#manifiesto" className={cn(buttonVariants({ variant: 'grajo-secondary', size: 'pill' }))}>
-                  Nuestro manifiesto
+                <a
+                  href="#filosofia"
+                  className={cn(buttonVariants({ variant: 'grajo-ghost', size: 'pill' }))}
+                >
+                  Cómo pensamos →
                 </a>
               </div>
             </FadeUp>
           </div>
 
-          {/* Visual grid — hidden on mobile */}
-          <div
-            className="hidden md:grid grid-cols-2 grid-rows-2 gap-4"
-            aria-hidden="true"
-          >
-            <div className="row-span-2 rounded-[var(--radius)] border-[2.5px] border-earth bg-sand flex items-center justify-center text-[2.5rem] [box-shadow:8px_8px_16px_rgba(61,50,41,0.12),-2px_-2px_8px_rgba(255,253,249,0.7)]">
-              💻
-            </div>
-            <div className="aspect-square rounded-[var(--radius)] border-[2.5px] border-earth bg-sand flex items-center justify-center text-[2.5rem] [box-shadow:8px_8px_16px_rgba(61,50,41,0.12),-2px_-2px_8px_rgba(255,253,249,0.7)]">
-              🎬
-            </div>
-            <div className="aspect-square rounded-[var(--radius)] border-[2.5px] border-earth bg-orange flex items-center justify-center p-6 text-center [box-shadow:8px_8px_16px_rgba(61,50,41,0.12),-2px_-2px_8px_rgba(255,253,249,0.7)]">
-              <span className="font-display text-[1.1rem] leading-[1.4] text-white">
-                Código limpio.<br />
-                Mirada humana.<br />
-                Intención real.
+          {/* Right column */}
+          <FadeUp delay={0.12} className="flex flex-col gap-[14px]">
+            {/* Feature card — dark bg with service list */}
+            <div className="relative overflow-hidden rounded-[20px] bg-earth p-[24px_26px] text-cream">
+              {/* Watermark "g" */}
+              <div
+                className="pointer-events-none absolute -top-5 -right-2.5 select-none font-display text-[11rem] leading-none italic text-orange opacity-[0.18]"
+                aria-hidden="true"
+              >
+                g
+              </div>
+              <span className="relative mb-3 inline-flex items-center gap-2 text-[0.69rem] font-bold uppercase tracking-[0.12em] text-orange-soft">
+                <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+                Lo que hacemos
               </span>
+              <ul className="relative m-0 list-none p-0">
+                {SERVICES_PREVIEW.map((s, i) => (
+                  <li
+                    key={s.n}
+                    className={cn(
+                      'grid grid-cols-[34px_1fr] items-baseline gap-3 py-[11px]',
+                      i < SERVICES_PREVIEW.length - 1 && 'border-b border-cream/[0.08]'
+                    )}
+                  >
+                    <span
+                      className="font-display text-[1.125rem] leading-none italic text-orange-soft"
+                      aria-hidden="true"
+                    >
+                      {s.n}
+                    </span>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-heading text-[0.875rem] font-semibold leading-tight tracking-[-0.005em] text-cream">
+                        {s.t}
+                      </span>
+                      <span className="font-body text-[0.75rem] leading-[1.45] text-cream/55">
+                        {s.d}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+
+            {/* Micro-stats */}
+            <div className="grid grid-cols-2 gap-[14px]">
+              <div className="flex flex-col gap-1 rounded-[14px] border border-sand p-[14px_16px]">
+                <span className="font-display text-[2rem] leading-none text-orange-accessible">2</span>
+                <span className="text-[0.72rem] leading-[1.4] text-earth-mid">perfiles. Una forma.</span>
+              </div>
+              <div className="flex flex-col gap-1 rounded-[14px] border border-sand p-[14px_16px]">
+                <span className="font-display text-[1.625rem] leading-none text-orange-accessible">WCAG</span>
+                <span className="text-[0.72rem] leading-[1.4] text-earth-mid">2.2 AA desde día 1</span>
+              </div>
+            </div>
+          </FadeUp>
 
         </div>
       </div>
