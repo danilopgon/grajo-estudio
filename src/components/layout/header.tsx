@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { LogoIcon } from '@/components/icons/logo-icon'
 import { buttonVariants } from '@/components/ui/button-variants'
 import { MobileNav } from './mobile-nav'
 import { cn } from '@/lib/utils'
@@ -21,29 +22,13 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 font-heading text-[1.35rem] font-extrabold tracking-[-0.02em] text-earth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
+          className="flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
           aria-label="Grajo Estudio — inicio"
         >
-          <svg
-            className="h-8 w-8 shrink-0"
-            viewBox="0 0 32 32"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle cx="16" cy="16" r="14" fill="var(--earth)" />
-            <text
-              x="16"
-              y="22"
-              textAnchor="middle"
-              fill="var(--cream)"
-              fontFamily="DM Serif Display, Georgia, serif"
-              fontSize="18"
-              fontStyle="italic"
-            >
-              g
-            </text>
-          </svg>
-          Grajo Estudio
+          <LogoIcon className="h-7 w-auto shrink-0 text-earth" />
+          <span className="font-heading text-[1.35rem] font-extrabold tracking-[-0.02em] text-earth">
+            Grajo Estudio
+          </span>
         </Link>
 
         {/* Desktop nav links */}

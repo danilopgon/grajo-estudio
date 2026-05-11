@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { LogoIcon } from '@/components/icons/logo-icon'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -39,8 +40,9 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent side="right" className="bg-cream w-72">
         <SheetHeader>
-          <SheetTitle className="font-heading text-lg font-bold text-earth text-left">
-            Grajo Estudio
+          <SheetTitle className="text-left flex items-center gap-2">
+            <LogoIcon className="h-6 w-auto shrink-0 text-earth" />
+            <span className="font-heading text-lg font-bold text-earth">Grajo Estudio</span>
           </SheetTitle>
         </SheetHeader>
         <nav aria-label="Menú móvil" className="mt-8 flex flex-col gap-1">
