@@ -114,7 +114,7 @@ export function Contacto() {
               hola@grajoestudio.com
             </a>
             <p className="mt-5 text-[0.78rem] font-bold uppercase tracking-[0.06em] text-cream/45">
-              Cuenca, España · Disponibles para proyectos en 2026
+              Cuenca, España · Aceptamos proyectos ahora
             </p>
           </div>
 
@@ -122,7 +122,23 @@ export function Contacto() {
           {status === 'success' ? (
             <div className="flex flex-col gap-4 rounded-[var(--radius)] border border-[rgba(245,237,227,0.1)] bg-[rgba(245,237,227,0.05)] p-8">
               <p className="font-heading text-xl font-bold text-cream">¡Recibido!</p>
-              <p className="text-[rgba(245,237,227,0.7)]">Te respondemos pronto.</p>
+              <p className="text-[rgba(245,237,227,0.7)]">
+                Te respondemos en 24–48 h. Si no recibes confirmación, escríbenos a{' '}
+                <a
+                  href="mailto:hola@grajoestudio.com"
+                  className="underline underline-offset-2 hover:text-orange-soft transition-colors"
+                >
+                  hola@grajoestudio.com
+                </a>
+                .
+              </p>
+              <button
+                type="button"
+                onClick={() => setStatus('idle')}
+                className="self-start text-[0.82rem] font-semibold uppercase tracking-[0.06em] text-orange-soft underline underline-offset-2 hover:text-cream transition-colors"
+              >
+                Enviar otro mensaje
+              </button>
             </div>
           ) : (
             <form
