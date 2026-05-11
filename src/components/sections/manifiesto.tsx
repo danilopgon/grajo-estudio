@@ -7,12 +7,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const ITEMS = [
-  { num: 'I', text: 'Creemos en el código con alma.' },
-  { num: 'II', text: 'Lo técnico y lo humano se encuentran.' },
+  { num: 'I',   text: 'Antes que rápido, claro.' },
+  { num: 'II',  text: 'Lo técnico y lo humano se encuentran.' },
   { num: 'III', text: 'Venimos de lo social, lo gráfico y lo narrativo.' },
-  { num: 'IV', text: 'Arreglamos lo roto y elevamos lo posible.' },
-  { num: 'V', text: 'No distinguimos entre pantalla y lienzo.' },
-  { num: 'VI', text: 'Hacemos poco, pero lo hacemos bien.' },
+  { num: 'IV',  text: 'Arreglamos lo roto y elevamos lo posible.' },
+  { num: 'V',   text: 'Código y narrativa son el mismo oficio.' },
+  { num: 'VI',  text: 'No competimos por volumen. Competimos por criterio.' },
 ]
 
 // Each feather: position, size, initial rotation, opacity, parallax config
