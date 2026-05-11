@@ -1,90 +1,81 @@
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { FadeUp } from '@/components/animations/fade-up'
 import { StaggerChildren } from '@/components/animations/stagger-children'
 
 const SERVICIOS = [
   {
-    id: 'desarrollo',
-    num: '01',
-    title: 'Desarrollo web y app',
-    description:
-      'Webs y aplicaciones con tecnologías modernas — Angular, React, Next.js. Código mantenible, escalable y pensado para durar.',
-    tags: ['Frontend', 'Fullstack'],
+    id: 'productos',
+    n: '01',
+    t: 'Productos digitales',
+    d: 'Webs, aplicaciones y frontends modernos construidos para durar. Sin atajos que compliquen el futuro.',
+    items: ['Next.js / React / Angular', 'TypeScript', 'Node.js / NestJS', 'Supabase'],
   },
   {
     id: 'accesibilidad',
-    num: '02',
-    title: 'Accesibilidad digital',
-    description:
-      'Auditorías, consultoría y acompañamiento. La accesibilidad no es un parche: es la base desde la que diseñamos y desarrollamos.',
-    tags: ['WCAG', 'Inclusión'],
-  },
-  {
-    id: 'rescate',
-    num: '03',
-    title: 'Rescate de código',
-    description:
-      'Refactorizamos apps rotas, mal planteadas o generadas con IA sin criterio. Convertimos prototipos en productos reales.',
-    tags: ['Refactor', 'IA rescue'],
+    n: '02',
+    t: 'Accesibilidad & UX',
+    d: 'Auditorías, implementación técnica y acompañamiento. La EAA ya está en vigor — te ayudamos a cumplir y a hacerlo bien.',
+    items: ['Auditorías WCAG 2.2', 'Consultoría EAA', 'Remediación técnica', 'Acompañamiento'],
   },
   {
     id: 'narrativa',
-    num: '04',
-    title: 'Narrativa visual',
-    description:
-      'Videoclips, motion y piezas audiovisuales. La misma filosofía que aplicamos al código: intención, ritmo y coherencia.',
-    tags: ['Videoclip', 'Motion'],
+    n: '04',
+    t: 'Narrativa visual',
+    d: 'Videoclips, motion y piezas audiovisuales. La misma mirada que el código: ritmo, intención, coherencia.',
+    items: ['Videoclip', 'Motion graphics', 'Dirección visual', 'Sistemas en movimiento'],
   },
 ]
 
 export function Servicios() {
   return (
-    <section id="servicios" className="py-[clamp(4rem,8vh,7rem)]">
+    <section
+      id="servicios"
+      className="py-[clamp(4rem,9vh,7rem)]"
+      aria-labelledby="servicios-heading"
+    >
       <div className="container">
-        <FadeUp>
-          <span className="mb-4 inline-flex items-center gap-1.5 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-orange">
-            ✦ Lo que hacemos
-          </span>
-        </FadeUp>
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <FadeUp>
+              <span className="mb-4 inline-flex items-center gap-2 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-orange-accessible">
+                <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+                Lo que hacemos
+              </span>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <h2
+                id="servicios-heading"
+                className="mt-4 max-w-[540px] font-display text-[clamp(2.2rem,4.6vw,3.5rem)] leading-[1.08] tracking-[-0.02em] text-earth"
+              >
+                Tres formas<br />de hacer bien las cosas.
+              </h2>
+            </FadeUp>
+          </div>
+          <FadeUp delay={0.16}>
+            <p className="max-w-[320px] text-[0.875rem] leading-[1.7] text-earth-mid">
+              No hacemos de todo. Hacemos esto, y lo hacemos con criterio.
+            </p>
+          </FadeUp>
+        </div>
 
-        <FadeUp delay={0.08}>
-          <h2 className="mb-4 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.12] text-earth">
-            Cuatro formas<br />de hacer bien las cosas
-          </h2>
-        </FadeUp>
-
-        <FadeUp delay={0.16}>
-          <p className="mb-12 max-w-[560px] text-[1.05rem] leading-[1.7] text-earth-mid">
-            No hacemos de todo. Hacemos esto, y lo hacemos con criterio.
-          </p>
-        </FadeUp>
-
-        <StaggerChildren className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {SERVICIOS.map((servicio) => (
-            <Card key={servicio.id} className="relative overflow-hidden">
-              <CardContent className="flex flex-col gap-3 p-[clamp(1.5rem,3vw,2.5rem)]">
-                <span
-                  className="font-display text-[3.5rem] leading-none text-sand transition-colors duration-300 group-hover/card:text-orange-soft"
-                  aria-hidden="true"
-                >
-                  {servicio.num}
-                </span>
-                <h3 className="font-heading text-[1.25rem] font-bold text-earth">
-                  {servicio.title}
-                </h3>
-                <p className="text-[0.92rem] leading-[1.65] text-earth-mid">
-                  {servicio.description}
-                </p>
-                <div className="mt-1 flex flex-wrap gap-2">
-                  {servicio.tags.map((tag) => (
-                    <Badge key={tag} variant="accent">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+        <StaggerChildren className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICIOS.map((s) => (
+            <div
+              key={s.id}
+              className="flex flex-col gap-3 rounded-[var(--radius)] border-[2.5px] border-earth bg-cream-light p-[24px_26px] shadow-[8px_8px_0_var(--earth)]"
+            >
+              <span className="font-heading text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-orange-accessible">
+                {s.n} —
+              </span>
+              <h3 className="font-display text-[1.5rem] leading-[1.2] tracking-[-0.01em] text-earth">
+                {s.t}
+              </h3>
+              <p className="text-[0.875rem] leading-[1.7] text-earth-mid">{s.d}</p>
+              <ul className="mt-1.5 flex flex-wrap gap-x-3.5 gap-y-1 p-0 text-[0.78rem] text-earth-mid">
+                {s.items.map((item) => (
+                  <li key={item} className="list-none">· {item}</li>
+                ))}
+              </ul>
+            </div>
           ))}
         </StaggerChildren>
       </div>
