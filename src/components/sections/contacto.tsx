@@ -85,31 +85,37 @@ export function Contacto() {
 
           {/* Info */}
           <div>
-            <span className="mb-4 inline-flex items-center gap-1.5 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-orange-soft">
-              ✦ Contacto
+            <span className="mb-4 inline-flex items-center gap-2 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-orange-soft">
+              <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+              Contacto
             </span>
             <h2
               id="contacto-heading"
-              className="mb-4 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.12] text-cream"
+              className="mb-4 font-display text-[clamp(2.2rem,4.6vw,3.5rem)] leading-[1.08] tracking-[-0.02em] text-cream"
             >
-              ¿Tienes algo<br />entre manos?
+              ¿Tienes algo<br />
+              entre manos?{' '}
+              <em className="not-italic text-orange-soft">Hablemos.</em>
             </h2>
-            <p className="mb-8 max-w-[400px] text-[1.05rem] leading-[1.7] text-[rgba(245,237,227,0.7)]">
-              Cuéntanos qué necesitas. Sin compromiso, sin jerga, sin formularios infinitos.
+            <p className="mb-8 max-w-[400px] text-[clamp(1rem,1.3vw,1.15rem)] leading-[1.7] text-cream/70">
+              Sin formularios interminables. Sin jerga. Solo una conversación sobre lo que necesitas.
             </p>
 
             <a
               href="mailto:hola@grajoestudio.com"
-              className="flex items-center gap-3 text-[0.92rem] text-[rgba(245,237,227,0.7)] transition-colors hover:text-orange-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
+              className="flex items-center gap-3 text-[0.92rem] text-cream/70 transition-colors hover:text-orange-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
             >
               <span
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[rgba(245,237,227,0.08)] text-[0.9rem]"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream/[0.08] text-[0.9rem]"
                 aria-hidden="true"
               >
                 ✉
               </span>
               hola@grajoestudio.com
             </a>
+            <p className="mt-5 text-[0.78rem] font-bold uppercase tracking-[0.06em] text-cream/45">
+              Cuenca, España · Disponibles para proyectos en 2026
+            </p>
           </div>
 
           {/* Form */}
