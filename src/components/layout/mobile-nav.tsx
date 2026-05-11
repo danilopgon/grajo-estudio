@@ -11,11 +11,11 @@ import {
 } from '@/components/ui/sheet'
 
 const NAV_LINKS = [
+  { href: '/#filosofia', label: 'Filosofía' },
   { href: '/#servicios', label: 'Servicios' },
   { href: '/#manifiesto', label: 'Manifiesto' },
-  { href: '/#narrativa', label: 'Visual' },
+  { href: '/#estudio', label: 'Estudio' },
   { href: '/#contacto', label: 'Contacto' },
-  { href: '/blog', label: 'Blog' },
 ]
 
 export function MobileNav() {
@@ -55,7 +55,7 @@ export function MobileNav() {
             </a>
           ))}
           <a
-            href="/#contacto"
+            href="#contacto"
             onClick={() => setOpen(false)}
             className="mt-6 inline-flex items-center justify-center h-10 gap-2 rounded-[var(--radius-pill)] px-7 text-[0.95rem] font-semibold tracking-[0.01em] bg-orange text-white border-earth border-[2.5px] [box-shadow:4px_4px_0_var(--earth)] hover:bg-orange-hover hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:2px_2px_0_var(--earth)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible"
           >

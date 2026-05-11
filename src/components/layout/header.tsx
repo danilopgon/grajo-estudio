@@ -4,11 +4,11 @@ import { MobileNav } from './mobile-nav'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
+  { href: '/#filosofia', label: 'Filosofía' },
   { href: '/#servicios', label: 'Servicios' },
   { href: '/#manifiesto', label: 'Manifiesto' },
-  { href: '/#narrativa', label: 'Visual' },
+  { href: '/#estudio', label: 'Estudio' },
   { href: '/#contacto', label: 'Contacto' },
-  { href: '/blog', label: 'Blog' },
 ]
 
 export function Header() {
@@ -62,7 +62,7 @@ export function Header() {
 
         {/* Desktop CTA */}
         <a
-          href="/#contacto"
+          href="#contacto"
           className={cn(buttonVariants({ variant: 'grajo-primary', size: 'pill' }), 'hidden md:inline-flex')}
         >
           Hablemos
