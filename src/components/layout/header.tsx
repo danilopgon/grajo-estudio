@@ -52,7 +52,7 @@ export function Header() {
             <li key={href}>
               <a
                 href={href}
-                className="font-body text-[0.92rem] font-medium text-earth transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
+                className="font-body text-[0.92rem] font-medium text-earth transition-colors hover:text-orange-accessible focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-accessible rounded-sm"
               >
                 {label}
               </a>
