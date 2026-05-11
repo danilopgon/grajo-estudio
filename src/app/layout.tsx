@@ -3,6 +3,7 @@ import { dmSerif, bricolage, instrumentSans } from '@/lib/fonts'
 import { SmoothScrollProvider } from '@/components/animations/smooth-scroll-provider'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
+import { FloatingCta } from '@/components/layout/floating-cta'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({
         </a>
         <SmoothScrollProvider>
           <Header />
+          <FloatingCta />
           {children}
           <Footer />
         </SmoothScrollProvider>
