@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import { getPostBySlug, getAllPosts } from '@/lib/mdx'
-import { useMDXComponents } from '../../../../mdx-components'
+import { getMDXComponents } from '../../../../mdx-components'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button-variants'
 import { cn } from '@/lib/utils'
@@ -33,17 +34,17 @@ function formatDate(dateStr: string) {
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const { meta, content, readingTime } = getPostBySlug(slug)
-  const components = useMDXComponents({})
+  const components = getMDXComponents({})
 
   return (
     <div className="mx-auto max-w-[720px]">
       {/* Back link */}
-      <a
+      <Link
         href="/blog"
         className={cn(buttonVariants({ variant: 'grajo-ghost', size: 'pill' }), 'mb-8 inline-flex gap-1 px-0 text-earth-mid hover:text-orange')}
       >
         ← Volver al blog
-      </a>
+      </Link>
 
       {/* Post header */}
       <header className="mb-10">

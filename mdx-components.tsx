@@ -1,7 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image'
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
+export function getMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Use next/image for all MDX images
     img: ({ src, alt, width, height }) => (
@@ -28,4 +28,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     ...components,
   }
+}
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return getMDXComponents(components)
 }
